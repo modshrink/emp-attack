@@ -3,8 +3,11 @@
 	<main role="main">
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php get_template_part( 'inc/content', 'single' ); ?>
-
+		<?php if( get_post_format() == 'aside' ) : ?>
+				<?php get_template_part( 'inc/aside', 'single' ); ?>
+		<?php else : ?>
+				<?php get_template_part( 'inc/content', 'single' ); ?>
+		<?php endif; ?>
 		<?php
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();

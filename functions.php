@@ -1,4 +1,15 @@
 <?php
+/**
+ * emp_scripts
+ *
+ * スクリプトのエンキュー
+ *
+ * @author まよいび
+ * @since 2015-08-27
+ *
+ * @param NONE
+ * @return callback
+ */
 function emp_scripts() {
 	wp_enqueue_style( 'emp_style', get_stylesheet_uri(), array( 'yui_cssbase' ) );
 	wp_enqueue_style( 'yui_cssbase', get_template_directory_uri() . '/css/cssbase.css' );

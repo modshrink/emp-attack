@@ -9,7 +9,7 @@ Version: 0.0.1-dev
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: emp-attack
-Tags: one-column
+Tags: one-column, headless
 */
 
 body {
@@ -158,4 +158,39 @@ a img.aligncenter {
 	top: 5px;
 	width: auto;
 	z-index: 100000; /* Above WP toolbar. */
+}
+
+header,
+footer {
+	padding: 20px 30px;
+	margin: 0 auto;
+	width: 50%;
+}
+
+.site-description {
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+}
+
+.theme-poweredby {
+	font-size: 1.2rem;
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+}
+
+/**
+ * Post Format
+ */
+
+.single article {
+	border: 1px solid #CCCCCC;
+	border-radius: 7px;
+	padding: 20px 30px;
+	margin: 0 auto;
+	width: 50%;
+}
+
+.format-aside {
+
 }

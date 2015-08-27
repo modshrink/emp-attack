@@ -12,31 +12,14 @@
 <body <?php body_class(); ?>>
 
 	<header class="global" role="banner">
-		<?php if ( is_front_page() && is_home() ) : ?>
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-		<?php else : ?>
-			<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-		<?php endif; ?>
-		<p class="site-description"><?php bloginfo( 'description' ); ?></p>
+		<p class="site-description">
+			<?php
+			if( !get_bloginfo( 'description' ) ) :
+				_e( 'The Only Neat Thing to Do', 'emp-attack' );
+			else :
+				bloginfo( 'description' );
+			endif;
+			?>
+		</p>
+		<p class="theme-poweredby">Powerd by <a href="#">EMP Attack</a> Version 0.0.1</p>
 	</header>
-<?php
-$defaults = array(
-	'theme_location'  => '',
-	'menu'            => '',
-	'container'       => 'div',
-	'container_class' => '',
-	'container_id'    => '',
-	'menu_class'      => 'menu',
-	'menu_id'         => '',
-	'echo'            => true,
-	'fallback_cb'     => 'wp_page_menu',
-	'before'          => '',
-	'after'           => '',
-	'link_before'     => '',
-	'link_after'      => '',
-	'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-	'depth'           => 0,
-	'walker'          => ''
-);
-
-wp_nav_menu( $defaults );
