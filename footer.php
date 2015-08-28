@@ -1,0 +1,47 @@
+	<footer class="global">
+		<?php if ( is_front_page() && is_home() ) : ?>
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+		<?php else : ?>
+			<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+		<?php endif; ?>
+
+		<?php
+		$defaults = array(
+			'theme_location'  => '',
+			'menu'            => '',
+			'container'       => 'div',
+			'container_class' => '',
+			'container_id'    => '',
+			'menu_class'      => 'menu',
+			'menu_id'         => '',
+			'echo'            => true,
+			'fallback_cb'     => 'wp_page_menu',
+			'before'          => '',
+			'after'           => '',
+			'link_before'     => '',
+			'link_after'      => '',
+			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+			'depth'           => 0,
+			'walker'          => ''
+		);
+		wp_nav_menu( $defaults );
+
+		?>
+	</footer>
+
+<?php wp_footer(); ?>
+<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Raleway::latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
+</body>
+</html>
