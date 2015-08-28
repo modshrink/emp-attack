@@ -9,7 +9,7 @@ Version: 0.0.1-dev
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: emp-attack
-Tags: one-column, headless
+Tags: one-column, fluid-layout, responsive-layout, custom-background
 */
 
 body {
@@ -189,6 +189,10 @@ footer {
 	padding: 20px 30px;
 	margin: 0 auto;
 	width: 50%;
+}
+
+article h1 {
+	text-align: center;
 }
 
 .format-aside {
