@@ -12,12 +12,33 @@ Text Domain: emp-attack
 Tags: one-column, fluid-layout, responsive-layout, custom-background
 */
 
+/**
+ * clearfix
+ */
+.cf:before,
+article:after,
+.entry-content::after {
+	content: "";
+ 	display: table;
+}
+
+article:after,
+.entry-content::after {
+	clear: both;
+}
+
+article,
+.entry-content {
+	*zoom: 1;
+}
+
 body {
 	background: #F9F9F9;
 }
 
 a:link {
 	color: #E91E63;
+	text-decoration:  underline;
 }
 
 a:visited {
@@ -182,7 +203,7 @@ header {
 	font-weight: 600;
 }
 
-footer {
+footer.global {
 	background: #000000;
 	position: fixed;
 	bottom: 0;
@@ -191,7 +212,7 @@ footer {
 	font-size: 1rem;
 }
 
-footer .site-title {
+footer.global .site-title {
 	margin: 0;
 	text-align: center;
 }
@@ -200,23 +221,58 @@ footer .site-title {
  * Post Format
  */
 
-.single article {
-	border: 1px solid #CCCCCC;
-	border-radius: 7px;
-	padding: 20px 30px;
-	margin: 0 auto;
-	width: 50%;
+ article {
+ 	border: 1px solid #000000;
+ 	border-radius: 3px;
+ 	padding: 20px 30px;
+ 	margin: 0 auto 30px;
+ 	max-width: 1024px;
+ }
+
+ article.sticky {
+	border-top: 3px solid #E91E63;
+	border-right: 0;
+	border-bottom: 3px solid #E91E63;
+	border-left: 0;
+	border-radius: 0;
+ }
+
+article .thumbnail {
+	float: left;
+	margin: 0 40px 40px 0;
+	padding: 0;
 }
 
-article h1 {
+article header {
 	text-align: center;
+}
+
+article header .published {
+	color: #999;
+}
+
+article footer ul {
+	margin: 0;
+	padding: 0;
+}
+
+article footer ul li {
+	display: inline;
 }
 
 .format-aside {
 
 }
 
+.paginate {
+	text-align: center;
+}
 
+@media screen and (max-width: 1024px) {
+	article {
+		margin: 0 20px 30px;
+	}
+}
 
 @media screen and (max-width: 480px) {
 
