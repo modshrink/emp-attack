@@ -222,7 +222,7 @@ footer.global .site-title {
  */
 
  article {
- 	border: 1px solid #000000;
+ 	border: 2px solid #555555;
  	border-radius: 3px;
  	padding: 20px 30px;
  	margin: 0 auto 30px;
@@ -230,11 +230,7 @@ footer.global .site-title {
  }
 
  article.sticky {
-	border-top: 3px solid #E91E63;
-	border-right: 0;
-	border-bottom: 3px solid #E91E63;
-	border-left: 0;
-	border-radius: 0;
+	border: 2px solid #000000;
  }
 
 article .thumbnail {
@@ -251,12 +247,20 @@ article header .published {
 	color: #999;
 }
 
+article footer {
+	border-top: 1px solid #000000;
+	margin-top: 20px;
+	padding: 20px 0 0 0;
+	color: #727272;
+}
+
 article footer ul {
 	margin: 0;
 	padding: 0;
 }
 
 article footer ul li {
+	margin-right: 10px;
 	display: inline;
 }
 
