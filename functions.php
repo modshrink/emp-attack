@@ -32,6 +32,17 @@ add_theme_support( 'automatic-feed-links' );
 
 add_theme_support( 'post-thumbnails' );
 
+
+/**
+ * Pre get posts
+  */
+function emp_pre_get_posts( $query ) {
+	if ( $query->is_home() && $query->is_main_query() ) {
+		$query->set( 'posts_per_page', '5' );
+	}
+}
+add_action( 'pre_get_posts', 'emp_pre_get_posts' );
+
 $args = array(
 	'width' => 900,
 	'height' => 200,
