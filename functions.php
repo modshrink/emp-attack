@@ -33,6 +33,16 @@ add_theme_support( 'automatic-feed-links' );
 add_theme_support( 'post-thumbnails' );
 
 
+function new_excerpt_more($more) {
+	return '<span class="more-dot-1">.</span><span class="more-dot-2">.</span><span class="more-dot-3">.</span>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
+function custom_excerpt_length( $length ) {
+	return 200;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
 /**
  * Pre get posts
   */
