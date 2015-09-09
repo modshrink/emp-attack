@@ -287,6 +287,13 @@ article .more-dot-3 {
 	text-align: center;
 }
 
+#comments {
+	border-radius: 3px;
+	padding: 20px 30px;
+	margin: 0 auto 30px;
+	max-width: 1024px;
+}
+
 @media screen and (max-width: 1024px) {
 	article {
 		margin: 0 20px 30px;
