@@ -1,3 +1,16 @@
+<?php
+if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+	return;
+}
+?>
+
+<div id="secondary" class="widget-area" role="complementary">
+	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+</div><!-- #secondary -->
+
+
+
+
 	<footer class="global">
 		<?php if ( is_front_page() && is_home() ) : ?>
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>

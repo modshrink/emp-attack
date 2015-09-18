@@ -1,4 +1,9 @@
-<?php status_header( 404 ); get_header(); ?>
+<?php
+/**
+ * このテーマでは, index.phpで404ステータス・ヘッダを出力します。
+ */
+
+status_header( 404 ); get_header(); ?>
 
 	<main role="main">
 			<article class="hentry">
