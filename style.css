@@ -221,16 +221,17 @@ footer.global .site-title {
  * Post Format
  */
 
- article {
- 	border: 2px solid #555555;
- 	border-radius: 3px;
- 	padding: 20px 30px;
- 	margin: 0 auto 30px;
- 	max-width: 1024px;
- }
+article {
+	border: 2px solid #555555;
+	border-radius: 3px;
+	padding: 20px 30px;
+	margin: 0 auto 30px;
+	max-width: 1024px;
+}
 
- article.sticky {
+.sticky {
 	border: 2px solid #000000;
+	background: #FFC107;
  }
 
 article .thumbnail {
