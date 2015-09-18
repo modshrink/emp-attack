@@ -234,48 +234,48 @@ article {
 	background: #FFC107;
  }
 
-article .thumbnail {
+.article .thumbnail {
 	float: left;
 	margin: 0 40px 40px 0;
 	padding: 0;
 }
 
-article header {
+.article__header {
 	text-align: center;
 }
 
-article header .published {
+.article__header .published {
 	color: #999;
 }
 
-article footer {
+.article__footer {
 	border-top: 1px solid #000000;
 	margin-top: 20px;
 	padding: 20px 0 0 0;
 	color: #727272;
 }
 
-article footer ul {
+.article__footer ul {
 	margin: 0;
 	padding: 0;
 }
 
-article footer ul li {
+.article__footer ul li {
 	margin-right: 10px;
 	display: inline;
 }
 
-article .more-dot-1 {
+.article .more-dot-1 {
 	font-size: 1.8rem;
 	color: #000000;
 }
 
-article .more-dot-2 {
+.article .more-dot-2 {
 	font-size: 1.8rem;
 	color: #999999;
 }
 
-article .more-dot-3 {
+.article .more-dot-3 {
 	font-size: 1.8rem;
 	color: #CCCCCC;
 }
@@ -296,7 +296,7 @@ article .more-dot-3 {
 }
 
 @media screen and (max-width: 1024px) {
-	article {
+	.article {
 		margin: 0 20px 30px;
 	}
 }
