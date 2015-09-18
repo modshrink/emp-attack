@@ -1,4 +1,4 @@
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'article' ) ); ?>>
 			<header>
 				<h1 class="entry-title"><?php the_title(); ?></h1>
 			</header>
