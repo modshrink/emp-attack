@@ -21,5 +21,5 @@
 			endif;
 			?>
 		</p>
-		<p class="theme-poweredby">Powerd by <a href="#">EMP Attack</a> Version 0.0.1</p>
+		<p class="theme-poweredby">Powerd by <a href="#">EMP theme</a> Version 0.0.1</p>
 	</header>

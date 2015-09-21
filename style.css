@@ -15,19 +15,21 @@ Tags: one-column, fluid-layout, responsive-layout, custom-background
 /**
  * clearfix
  */
-.cf:before,
-article:after,
+.article:after,
+.article__content:after,
 .entry-content::after {
 	content: "";
  	display: table;
 }
 
-article:after,
+.article:after,
+.article__content:after,
 .entry-content::after {
 	clear: both;
 }
 
-article,
+.article,
+.article__content,
 .entry-content {
 	*zoom: 1;
 }
@@ -221,60 +223,67 @@ footer.global .site-title {
  * Post Format
  */
 
- article {
- 	border: 2px solid #555555;
- 	border-radius: 3px;
- 	padding: 20px 30px;
- 	margin: 0 auto 30px;
- 	max-width: 1024px;
+.article {
+	border: 1px solid #C2185B;
+	border-radius: 5px;
+	margin: 0 auto 60px;
+	max-width: 1024px;
+}
+
+.sticky {
+	border: none;
+	background: #FFC107;
  }
 
- article.sticky {
-	border: 2px solid #000000;
- }
-
-article .thumbnail {
+.article__content__thumbnail {
 	float: left;
 	margin: 0 40px 40px 0;
 	padding: 0;
 }
 
-article header {
+.article__header {
 	text-align: center;
 }
 
-article header .published {
-	color: #999;
+.article__header__title {
+	font-weight: normal;
 }
 
-article footer {
-	border-top: 1px solid #000000;
+.article__content {
+	padding: 20px;
+}
+
+.article__footer {
+	border-top: 1px solid #C2185B;
 	margin-top: 20px;
-	padding: 20px 0 0 0;
-	color: #727272;
+	padding: 20px;
 }
 
-article footer ul {
+.sticky .article__footer {
+	border-top: 1px solid #FFFFFF;
+}
+
+.article__footer ul {
 	margin: 0;
 	padding: 0;
 }
 
-article footer ul li {
+.article__footer ul li {
 	margin-right: 10px;
 	display: inline;
 }
 
-article .more-dot-1 {
+.article .more-dot-1 {
 	font-size: 1.8rem;
 	color: #000000;
 }
 
-article .more-dot-2 {
+.article .more-dot-2 {
 	font-size: 1.8rem;
 	color: #999999;
 }
 
-article .more-dot-3 {
+.article .more-dot-3 {
 	font-size: 1.8rem;
 	color: #CCCCCC;
 }
@@ -295,7 +304,7 @@ article .more-dot-3 {
 }
 
 @media screen and (max-width: 1024px) {
-	article {
+	.article {
 		margin: 0 20px 30px;
 	}
 }
