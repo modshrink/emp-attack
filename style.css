@@ -15,19 +15,21 @@ Tags: one-column, fluid-layout, responsive-layout, custom-background
 /**
  * clearfix
  */
-.cf:before,
-article:after,
+.article:after,
+.article__content:after,
 .entry-content::after {
 	content: "";
  	display: table;
 }
 
-article:after,
+.article:after,
+.article__content:after,
 .entry-content::after {
 	clear: both;
 }
 
-article,
+.article,
+.article__content,
 .entry-content {
 	*zoom: 1;
 }
@@ -221,20 +223,19 @@ footer.global .site-title {
  * Post Format
  */
 
-article {
-	border: 2px solid #555555;
-	border-radius: 3px;
-	padding: 20px 30px;
-	margin: 0 auto 30px;
+.article {
+	border: 1px solid #C2185B;
+	border-radius: 5px;
+	margin: 0 auto 60px;
 	max-width: 1024px;
 }
 
 .sticky {
-	border: 2px solid #000000;
+	border: none;
 	background: #FFC107;
  }
 
-.article .thumbnail {
+.article__content__thumbnail {
 	float: left;
 	margin: 0 40px 40px 0;
 	padding: 0;
@@ -244,15 +245,22 @@ article {
 	text-align: center;
 }
 
-.article__header .published {
-	color: #999;
+.article__header__title {
+	font-weight: normal;
+}
+
+.article__content {
+	padding: 20px;
 }
 
 .article__footer {
-	border-top: 1px solid #000000;
+	border-top: 1px solid #C2185B;
 	margin-top: 20px;
-	padding: 20px 0 0 0;
-	color: #727272;
+	padding: 20px;
+}
+
+.sticky .article__footer {
+	border-top: 1px solid #FFFFFF;
 }
 
 .article__footer ul {
