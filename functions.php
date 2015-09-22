@@ -238,3 +238,12 @@ add_action( 'widgets_init', '_s_widgets_init' );
 		$GLOBALS['content_width'] = apply_filters( 'emp_content_width', 640 );
 	}
 	add_action( 'after_setup_theme', 'emp_content_width', 0 );
+
+
+function init_emp_copyright( $text ) {
+	if( !$text ) :
+		$text = 'Copyright &copy; ' . get_bloginfo( 'name' ) . ' All Rights Reserved.';
+	endif;
+	return $text;
+}
+add_filter( 'emp_copyright', 'init_emp_copyright', 10, 1 );

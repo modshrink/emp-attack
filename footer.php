@@ -11,12 +11,18 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 
 
-	<footer class="global">
+	<footer class="footer">
+		<div class="footer__copyright">
+			<?php echo apply_filters( 'emp_copyright', 'テキストはクリエイティブ・コモンズ 表示-継承ライセンスの下で利用可能です。追加の条件が適用される場合があります。詳細は利用規約を参照してください。' ); ?>
+		</div> <!-- footer__copyright -->
+
+		<div class="footer__title">
 		<?php if ( is_front_page() && is_home() ) : ?>
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 		<?php else : ?>
 			<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 		<?php endif; ?>
+		</div> <!-- footer__title" -->
 
 		<?php
 		$defaults = array(
@@ -40,6 +46,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		wp_nav_menu( $defaults );
 
 		?>
+
 	</footer>
 
 <?php wp_footer(); ?>
