@@ -13,7 +13,8 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 	<footer class="footer">
 		<div class="footer__copyright">
-			<?php echo apply_filters( 'emp_copyright', 'テキストはクリエイティブ・コモンズ 表示-継承ライセンスの下で利用可能です。追加の条件が適用される場合があります。詳細は利用規約を参照してください。' ); ?>
+			<?php echo apply_filters( 'emp_copyright', '
+' ); ?>
 		</div> <!-- footer__copyright -->
 
 		<div class="footer__title">
@@ -63,5 +64,6 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wf, s);
   })(); </script>
+<?php echo continue_writing_date(); ?>
 </body>
 </html>
