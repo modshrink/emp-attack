@@ -224,8 +224,7 @@ header {
  */
 
 .article {
-	border: 1px solid #C2185B;
-	border-radius: 5px;
+	border: 2px solid #000000;
 	margin: 0 auto 60px;
 	max-width: 1024px;
 }
@@ -254,13 +253,13 @@ header {
 }
 
 .article__footer {
-	border-top: 1px solid #C2185B;
+	border-top: 2px solid #000000;
 	margin-top: 20px;
 	padding: 20px;
 }
 
 .sticky .article__footer {
-	border-top: 1px solid #FFFFFF;
+	border-top: 2px solid #FFFFFF;
 }
 
 .article__footer ul {
