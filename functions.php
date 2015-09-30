@@ -251,9 +251,11 @@ add_filter( 'emp_copyright', 'init_emp_copyright', 10, 1 );
 /**
  * 今日まで何日継続して書き続けたかカウントする
  */
-function continue_writing_date( $roop = 365, $post_type = 'any' ) {
+function continue_writing_date( $roop = '', $post_type = 'any' ) {
 	$i = 0; // 全体のループカウント用のインクリメント
 	$j = 0; // 書き続けた日のカウント用のインクリメント
+
+	if ( $roop === '' ) $roop = 365; // ループの回数が未指定なら356日分ループ
 
 	// 指定回数分ループする
 	while ( $i < $roop ) :
