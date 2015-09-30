@@ -251,7 +251,7 @@ add_filter( 'emp_copyright', 'init_emp_copyright', 10, 1 );
 /**
  * 今日まで何日継続して書き続けたかカウントする
  */
-function continue_writing_date( $roop = 365 ) {
+function continue_writing_date( $roop = 365, $post_type = 'any' ) {
 	$i = 0; // 全体のループカウント用のインクリメント
 	$j = 0; // 書き続けた日のカウント用のインクリメント
 
@@ -265,7 +265,14 @@ function continue_writing_date( $roop = 365 ) {
 		$i++; // ループカウントを1追加
 
 		// 何日間書き続けたか確認するループ
-		$query = new WP_Query( 'year=' . $year . '&monthnum=' . $monthnum . '&day=' . $day . '&posts_per_page=1' ); // n日前の日付を1件だけリクエスト
+		$args = array(
+			'year' => $year,
+			'monthnum' => $monthnum,
+			'day' => $day,
+			'posts_per_page' => 1,
+			'post_type' => $post_type,
+		); // リクエスト用のパラメータを指定
+		$query = new WP_Query( $args ); // n日前の日付を1件だけリクエスト
 		if ( $query->have_posts() ) {
 			while ( $query->have_posts() ) {
 				$query->the_post();
@@ -275,5 +282,5 @@ function continue_writing_date( $roop = 365 ) {
 			break; // 投稿が無い日があればループ停止
 		}
 	endwhile;
-	return $j;
+	return $j; // 書き続けた日数を返す
 }
