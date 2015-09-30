@@ -238,3 +238,51 @@ add_action( 'widgets_init', '_s_widgets_init' );
 		$GLOBALS['content_width'] = apply_filters( 'emp_content_width', 640 );
 	}
 	add_action( 'after_setup_theme', 'emp_content_width', 0 );
+
+
+function init_emp_copyright( $text ) {
+	if( !$text ) :
+		$text = 'Copyright &copy; ' . get_bloginfo( 'name' ) . ' All Rights Reserved.';
+	endif;
+	return $text;
+}
+add_filter( 'emp_copyright', 'init_emp_copyright', 10, 1 );
+
+/**
+ * 今日まで何日継続して書き続けたかカウントする
+ */
+function continue_writing_date( $roop = '', $post_type = 'any' ) {
+	$i = 0; // 全体のループカウント用のインクリメント
+	$j = 0; // 書き続けた日のカウント用のインクリメント
+
+	if ( $roop === '' ) $roop = 365; // ループの回数が未指定なら356日分ループ
+
+	// 指定回数分ループする
+	while ( $i < $roop ) :
+		$per_day = 86400 * $i; // 1ループ毎にn日分の秒数を追加する
+		$day_by_day = time() - $per_day; // n日前の日付を算出
+		$year = date( 'Y', $day_by_day ); // n日前の年
+		$monthnum = date( 'm', $day_by_day ); // n日前の月
+		$day = date( 'd', $day_by_day ); // n日前の日
+		$i++; // ループカウントを1追加
+
+		// 何日間書き続けたか確認するループ
+		$args = array(
+			'year' => $year,
+			'monthnum' => $monthnum,
+			'day' => $day,
+			'posts_per_page' => 1,
+			'post_type' => $post_type,
+		); // リクエスト用のパラメータを指定
+		$query = new WP_Query( $args ); // n日前の日付を1件だけリクエスト
+		if ( $query->have_posts() ) {
+			while ( $query->have_posts() ) {
+				$query->the_post();
+				$j++; // 書き続けた日のカウントを1追加
+			}
+		} else {
+			break; // 投稿が無い日があればループ停止
+		}
+	endwhile;
+	return $j; // 書き続けた日数を返す
+}
