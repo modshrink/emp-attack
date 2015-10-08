@@ -249,6 +249,25 @@ function init_emp_copyright( $text ) {
 add_filter( 'emp_copyright', 'init_emp_copyright', 10, 1 );
 
 /**
+ * 当日の初回ログイン判定
+ */
+
+function today_first_login_message() {
+	if ( get_option( 'today_first_login' ) == 1 ) :
+		echo '<div class="message error">today first login.</div>';
+	endif;
+}
+add_action( 'admin_notices','today_first_login_message' );
+
+function today_first_login() {
+	if ( get_option( 'today_first_login' ) != 1 ) :
+		update_option( 'today_first_login', 1 );
+	endif;
+}
+add_action( 'wp_login', 'today_first_login' );
+
+
+/**
  * 今日まで何日継続して書き続けたかカウントする
  */
 function continue_writing_date( $post_type = 'any' ) {
