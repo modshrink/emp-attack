@@ -302,6 +302,88 @@ header {
 	max-width: 1024px;
 }
 
+.format-standard .article__footer:before {
+	content: "\f119";
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	font: normal 80px/1 'dashicons';
+	vertical-align: middle;
+	float: right;
+}
+.format-aside .article__footer:before {
+	content: "\f123";
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	font: normal 80px/1 'dashicons';
+	vertical-align: middle;
+	float: right;
+}
+
+.format-gallery .article__footer:before {
+	content: "\f161";
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	font: normal 80px/1 'dashicons';
+	vertical-align: middle;
+	float: right;
+}
+.format-image .article__footer:before {
+	content: "\f128";
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	font: normal 80px/1 'dashicons';
+	vertical-align: middle;
+	float: right;
+}
+.format-link .article__footer:before {
+	content: "\f103";
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	font: normal 80px/1 'dashicons';
+	vertical-align: middle;
+	float: right;
+}
+.format-quote .article__footer:before {
+	content: "\f122";
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	font: normal 80px/1 'dashicons';
+	vertical-align: middle;
+	float: right;
+}
+.format-status .article__footer:before {
+	content: "\f130";
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	font: normal 80px/1 'dashicons';
+	vertical-align: middle;
+	float: right;
+}
+.format-video .article__footer:before {
+	content: "\f236";
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	font: normal 80px/1 'dashicons';
+	vertical-align: middle;
+	float: right;
+}
+.format-audio .article__footer:before {
+	content: "\f127";
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	font: normal 80px/1 'dashicons';
+	vertical-align: middle;
+	float: right;
+}
+.format-chat .article__footer:before {
+	content: "\f125";
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	font: normal 80px/1 'dashicons';
+	vertical-align: middle;
+	float: right;
+}
+
 @media screen and (max-width: 1024px) {
 	.article {
 		margin: 0 20px 30px;

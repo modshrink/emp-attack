@@ -13,6 +13,7 @@
 function emp_scripts() {
 	wp_enqueue_style( 'emp_style', get_stylesheet_uri(), array( 'yui_cssbase' ) );
 	wp_enqueue_style( 'yui_cssbase', get_template_directory_uri() . '/css/cssbase.css' );
+	wp_enqueue_style( 'dashicons', site_url('/')."/wp-includes/css/dashicons.min.css" );
 }
 add_action( 'wp_enqueue_scripts', 'emp_scripts' );
 
