@@ -347,6 +347,7 @@ class emp {
 	static function get_post_pagination( $previous = true ) {
 		global $wpdb;
 		$obj = get_adjacent_post( '', '', $previous );
+		if( !$obj ) return;
 		$post_id = $obj->ID;
 		add_filter( 'excerpt_length', array( 'emp', 'post_pagination_excerpt_length' ), 999 );
 
