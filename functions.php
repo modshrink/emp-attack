@@ -35,7 +35,7 @@ add_theme_support( 'post-thumbnails' );
 
 
 function new_excerpt_more($more) {
-	return '<span class="more-dot-1">.</span><span class="more-dot-2">.</span><span class="more-dot-3">.</span>';
+	return '...';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
@@ -341,4 +341,29 @@ class emp {
 		echo emp::get_the_modified();
 	}
 
+	/**
+	 * 前後の投稿ナビゲーション
+	 */
+	static function get_post_pagination( $previous = true ) {
+		global $wpdb;
+		$obj = get_adjacent_post( '', '', $previous );
+		$post_id = $obj->ID;
+		add_filter( 'excerpt_length', array( 'emp', 'post_pagination_excerpt_length' ), 999 );
+
+		$my_posts = get_posts( array( 'include'=>array( $post_id ) ) );
+		if( $previous ):
+			echo '前の投稿: ';
+		else:
+			echo '次の投稿: ';
+		endif;
+		foreach ( $my_posts as $post ) : setup_postdata( $post ); ?>
+				<a href="<?php echo get_the_permalink( $post_id ); ?>"><?php echo get_the_title( $post_id ); ?></a>
+				<p class="article__pagination__excerpt"><?php echo get_the_excerpt(); ?></p>
+		<?php endforeach;
+		wp_reset_postdata();
+		remove_filter( 'excerpt_length', array( 'emp', 'post_pagination_excerpt_length' ) );
+	}
+	static function post_pagination_excerpt_length( $length ) {
+		return 50;
+	}
 }

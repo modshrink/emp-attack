@@ -21,4 +21,12 @@
 				<div class="published">Last modified: <?php emp::the_modified();?></div>
 				<div class="tags"><?php the_tags(); ?></div>
 			</footer>
+			<div class ="article__pagination">
+				<div class="article__pagination__previous">
+				<?php emp::get_post_pagination(); ?>
+				</div> <!-- article__pagination__previous -->
+				<div class="article__pagination__next">
+				<?php emp::get_post_pagination( false ); ?>
+				</div> <!-- article__pagination__next -->
+			</div> <!-- article__pagination -->
 		</article>

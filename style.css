@@ -272,19 +272,23 @@ header {
 	display: inline;
 }
 
-.article .more-dot-1 {
-	font-size: 1.8rem;
-	color: #000000;
+.article__pagination {
+	border-top: 2px solid #000000;
+	padding: 20px;
 }
 
-.article .more-dot-2 {
-	font-size: 1.8rem;
-	color: #999999;
+.article__pagination__previous {
+	padding-bottom: 10px;
 }
 
-.article .more-dot-3 {
-	font-size: 1.8rem;
-	color: #CCCCCC;
+.article__pagination__next {
+	padding-top: 10px;
+	border-top: 1px solid #CCCCCC;
+}
+
+.article__pagination__excerpt {
+	margin: 5px 0 0 0;
+	color: #555555;
 }
 
 .format-aside {
