@@ -326,4 +326,19 @@ class emp {
 		echo emp::get_the_date();
 	}
 
+	/**
+	 * 最終更新日出力
+	 */
+	static function get_the_modified() {
+		global $wpdb;
+		global $post;
+		$results = $wpdb->get_results( 'SELECT * FROM ' . $wpdb->prefix . 'posts WHERE ID = '. $post->ID, OBJECT  );
+		$post_date = $results[0]->post_modified;
+		$timestamp = strtotime( $post_date );
+		return date( 'F d, Y', $timestamp );
+	}
+	static function the_modified() {
+		echo emp::get_the_modified();
+	}
+
 }

@@ -18,7 +18,7 @@
 			</div>
 			<footer class="article__footer">
 				<div class="bookmark"><a href="<?php the_permalink(); ?>">Permalink</a></div>
-				<div class="published">Last modified: <?php the_modified_time( 'Y-m-d' );?></div>
+				<div class="published">Last modified: <?php emp::the_modified();?></div>
 				<div class="tags"><?php the_tags(); ?></div>
 			</footer>
 		</article>
