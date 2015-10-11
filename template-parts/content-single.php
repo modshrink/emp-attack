@@ -1,6 +1,6 @@
 		<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'article' ) ); ?>>
 			<header class="article__header">
-				<div class="published"><?php echo get_the_date( 'Y-m-d' );?></div>
+				<div class="published"><?php emp::the_date(); ?></div>
 				<h1 class="article__header__title"><?php the_title(); ?></h1>
 			</header>
 			<div class="article__content">

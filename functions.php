@@ -309,3 +309,21 @@ function continue_writing_date( $post_type = 'any' ) {
 	endwhile;
 	return $j; // 書き続けた日数を返す
 }
+
+class emp {
+	/**
+	 * 日付出力
+	 */
+	static function get_the_date() {
+		global $wpdb;
+		global $post;
+		$results = $wpdb->get_results( 'SELECT * FROM ' . $wpdb->prefix . 'posts WHERE ID = '. $post->ID, OBJECT  );
+		$post_date = $results[0]->post_date;
+		$timestamp = strtotime( $post_date );
+		return date( 'F d, Y', $timestamp );
+	}
+	static function the_date() {
+		echo emp::get_the_date();
+	}
+
+}
