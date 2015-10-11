@@ -13,6 +13,7 @@
 function emp_scripts() {
 	wp_enqueue_style( 'emp_style', get_stylesheet_uri(), array( 'yui_cssbase' ) );
 	wp_enqueue_style( 'yui_cssbase', get_template_directory_uri() . '/css/cssbase.css' );
+	wp_enqueue_style( 'dashicons', site_url('/')."/wp-includes/css/dashicons.min.css" );
 }
 add_action( 'wp_enqueue_scripts', 'emp_scripts' );
 
@@ -34,7 +35,7 @@ add_theme_support( 'post-thumbnails' );
 
 
 function new_excerpt_more($more) {
-	return '<span class="more-dot-1">.</span><span class="more-dot-2">.</span><span class="more-dot-3">.</span>';
+	return '...';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
@@ -307,4 +308,63 @@ function continue_writing_date( $post_type = 'any' ) {
 		}
 	endwhile;
 	return $j; // 書き続けた日数を返す
+}
+
+class emp {
+	/**
+	 * 日付出力
+	 */
+	static function get_the_date() {
+		global $wpdb;
+		global $post;
+		$results = $wpdb->get_results( 'SELECT * FROM ' . $wpdb->prefix . 'posts WHERE ID = '. $post->ID, OBJECT  );
+		$post_date = $results[0]->post_date;
+		$timestamp = strtotime( $post_date );
+		return date( 'F d, Y', $timestamp );
+	}
+	static function the_date() {
+		echo emp::get_the_date();
+	}
+
+	/**
+	 * 最終更新日出力
+	 */
+	static function get_the_modified() {
+		global $wpdb;
+		global $post;
+		$results = $wpdb->get_results( 'SELECT * FROM ' . $wpdb->prefix . 'posts WHERE ID = '. $post->ID, OBJECT  );
+		$post_date = $results[0]->post_modified;
+		$timestamp = strtotime( $post_date );
+		return date( 'F d, Y', $timestamp );
+	}
+	static function the_modified() {
+		echo emp::get_the_modified();
+	}
+
+	/**
+	 * 前後の投稿ナビゲーション
+	 */
+	static function get_post_pagination( $previous = true ) {
+		global $wpdb;
+		$obj = get_adjacent_post( '', '', $previous );
+		if( !$obj ) return;
+		$post_id = $obj->ID;
+		add_filter( 'excerpt_length', array( 'emp', 'post_pagination_excerpt_length' ), 999 );
+
+		$my_posts = get_posts( array( 'include'=>array( $post_id ) ) );
+		if( $previous ):
+			echo '前の投稿: ';
+		else:
+			echo '次の投稿: ';
+		endif;
+		foreach ( $my_posts as $post ) : setup_postdata( $post ); ?>
+				<a href="<?php echo get_the_permalink( $post_id ); ?>"><?php echo get_the_title( $post_id ); ?></a>
+				<p class="article__pagination__excerpt"><?php echo get_the_excerpt(); ?></p>
+		<?php endforeach;
+		wp_reset_postdata();
+		remove_filter( 'excerpt_length', array( 'emp', 'post_pagination_excerpt_length' ) );
+	}
+	static function post_pagination_excerpt_length( $length ) {
+		return 50;
+	}
 }
