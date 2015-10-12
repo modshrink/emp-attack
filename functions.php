@@ -359,7 +359,9 @@ class emp {
 		endif;
 		foreach ( $my_posts as $post ) : setup_postdata( $post ); ?>
 				<a href="<?php echo get_the_permalink( $post_id ); ?>"><?php echo get_the_title( $post_id ); ?></a>
+				<?php if( get_the_excerpt() ): ?>
 				<p class="article__pagination__excerpt"><?php echo get_the_excerpt(); ?></p>
+				<?php endif;?>
 		<?php endforeach;
 		wp_reset_postdata();
 		remove_filter( 'excerpt_length', array( 'emp', 'post_pagination_excerpt_length' ) );
