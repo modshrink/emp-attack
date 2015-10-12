@@ -291,6 +291,15 @@ header {
 	color: #555555;
 }
 
+.article__pagination__excerpt:before {
+	margin-right: 0.5em;
+	content: "\f205";
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	font: normal 20px/1 'dashicons';
+	vertical-align: middle;
+}
+
 .format-aside {
 
 }
@@ -306,84 +315,84 @@ header {
 	max-width: 1024px;
 }
 
-.format-standard .article__footer:before {
+.format-standard:before {
 	content: "\f119";
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
-	font: normal 80px/1 'dashicons';
+	font: normal 50px/1 'dashicons';
 	vertical-align: middle;
 	float: right;
 }
-.format-aside .article__footer:before {
+.format-aside:before {
 	content: "\f123";
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
-	font: normal 80px/1 'dashicons';
+	font: normal 50px/1 'dashicons';
 	vertical-align: middle;
 	float: right;
 }
 
-.format-gallery .article__footer:before {
+.format-gallery:before {
 	content: "\f161";
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
-	font: normal 80px/1 'dashicons';
+	font: normal 50px/1 'dashicons';
 	vertical-align: middle;
 	float: right;
 }
-.format-image .article__footer:before {
+.format-image:before {
 	content: "\f128";
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
-	font: normal 80px/1 'dashicons';
+	font: normal 50px/1 'dashicons';
 	vertical-align: middle;
 	float: right;
 }
-.format-link .article__footer:before {
+.format-link:before {
 	content: "\f103";
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
-	font: normal 80px/1 'dashicons';
+	font: normal 50px/1 'dashicons';
 	vertical-align: middle;
 	float: right;
 }
-.format-quote .article__footer:before {
+.format-quote:before {
 	content: "\f122";
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
-	font: normal 80px/1 'dashicons';
+	font: normal 50px/1 'dashicons';
 	vertical-align: middle;
 	float: right;
 }
-.format-status .article__footer:before {
+.format-status:before {
 	content: "\f130";
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
-	font: normal 80px/1 'dashicons';
+	font: normal 50px/1 'dashicons';
 	vertical-align: middle;
 	float: right;
 }
-.format-video .article__footer:before {
+.format-video:before {
 	content: "\f236";
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
-	font: normal 80px/1 'dashicons';
+	font: normal 50px/1 'dashicons';
 	vertical-align: middle;
 	float: right;
 }
-.format-audio .article__footer:before {
+.format-audio:before {
 	content: "\f127";
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
-	font: normal 80px/1 'dashicons';
+	font: normal 50px/1 'dashicons';
 	vertical-align: middle;
 	float: right;
 }
-.format-chat .article__footer:before {
+.format-chat:before {
 	content: "\f125";
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
-	font: normal 80px/1 'dashicons';
+	font: normal 50px/1 'dashicons';
 	vertical-align: middle;
 	float: right;
 }
