@@ -21,12 +21,18 @@
 				<div class="published">Last modified: <?php emp::the_modified();?></div>
 				<div class="tags"><?php the_tags(); ?></div>
 			</footer>
+			<?php if( !is_sticky() && ( get_adjacent_post() || get_adjacent_post( '', '', false ) ) ): ?>
 			<div class ="article__pagination">
+				<?php if( get_adjacent_post() ) : ?>
 				<div class="article__pagination__previous">
 				<?php emp::get_post_pagination(); ?>
 				</div> <!-- article__pagination__previous -->
+				<?php endif; ?>
+				<?php if( get_adjacent_post( '', '', false ) ) : ?>
 				<div class="article__pagination__next">
 				<?php emp::get_post_pagination( false ); ?>
 				</div> <!-- article__pagination__next -->
+				<?php endif; ?>
 			</div> <!-- article__pagination -->
+			<?php endif; ?>
 		</article>
