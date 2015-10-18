@@ -37,19 +37,19 @@ add_theme_support( 'post-thumbnails' );
 function new_excerpt_more($more) {
 	return '...';
 }
-add_filter('excerpt_more', 'new_excerpt_more');
+//add_filter('excerpt_more', 'new_excerpt_more');
 
 function custom_excerpt_length( $length ) {
 	return 200;
 }
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+//add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 /**
  * Pre get posts
   */
 function emp_pre_get_posts( $query ) {
 	if ( $query->is_home() && $query->is_main_query() ) {
-		$query->set( 'posts_per_page', '5' );
+		$query->set( 'posts_per_page', '12' );
 	}
 }
 add_action( 'pre_get_posts', 'emp_pre_get_posts' );
@@ -311,6 +311,30 @@ function continue_writing_date( $post_type = 'any' ) {
 }
 
 class emp {
+
+	/**
+	 * 日付出力
+	 * @see https://codex.wordpress.org/Function_Reference/get_the_excerpt
+	 */
+	static function the_excerpt( $length ) {
+		$excerpt = get_the_excerpt();
+		//$length++;
+
+		if ( mb_strlen( $excerpt ) > $length ) {
+			$subex = mb_substr( $excerpt, 0, $length );
+			$exwords = explode( ' ', $subex );
+			$excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
+			if ( $excut < 0 ) {
+				echo mb_substr( $subex, 0, $excut );
+			} else {
+				echo $subex;
+			}
+			echo $subex;
+		} else {
+			echo $excerpt;
+		}
+	}
+
 	/**
 	 * 日付出力
 	 */

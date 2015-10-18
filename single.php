@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<main role="main">
+	<main class="main" role="main">
 	<?php while ( have_posts() ) : the_post(); ?>
 
 		<?php if( get_post_format() == 'aside' ) : ?>
