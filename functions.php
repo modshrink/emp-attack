@@ -54,7 +54,7 @@ function emp_pre_get_posts( $query ) {
 
 		$find_sticky_query = new WP_Query( array( 'post_type' => 'any', 'posts_per_page' => 1, 'post_status' => 'publish' ) );
 		if ( is_sticky( $find_sticky_query->posts[0]->ID ) && !is_paged() ) {
-			$query->set( 'posts_per_page', '11wor' );
+			$query->set( 'posts_per_page', '11' );
 		}
 	}
 
