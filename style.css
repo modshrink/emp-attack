@@ -295,12 +295,24 @@ header {
 	font-weight: normal;
 }
 
+.article__header__title a:link,
+.article__header__title a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+.article__header__title a:hover,
+.article__header__title a:active {
+	text-decoration: none;
+	color: #e91e63;
+}
+
 .article__content {
 	padding: 20px;
 }
 
 .article__content img {
 	max-width: 100%;
+	height: auto;
 	height: auto;
 }
 

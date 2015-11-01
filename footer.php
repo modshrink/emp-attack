@@ -50,6 +50,10 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 	</footer>
 
+<?php
+	emp::the_date();
+?>
+
 <?php wp_footer(); ?>
 <script type="text/javascript">
   WebFontConfig = {
