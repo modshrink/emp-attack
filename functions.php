@@ -48,9 +48,16 @@ function custom_excerpt_length( $length ) {
  * Pre get posts
   */
 function emp_pre_get_posts( $query ) {
+	global $post;
 	if ( $query->is_home() && $query->is_main_query() ) {
 		$query->set( 'posts_per_page', '12' );
+
+		$find_sticky_query = new WP_Query( array( 'post_type' => 'any', 'posts_per_page' => 1, 'post_status' => 'publish' ) );
+		if ( is_sticky( $find_sticky_query->posts[0]->ID ) && !is_paged() ) {
+			$query->set( 'posts_per_page', '11' );
+		}
 	}
+
 }
 add_action( 'pre_get_posts', 'emp_pre_get_posts' );
 
@@ -271,7 +278,7 @@ add_action( 'wp_login', 'today_first_login' );
 /**
  * 今日まで何日継続して書き続けたかカウントする
  */
-function continue_writing_date( $post_type = 'any' ) {
+function get_continue_writing_date( $post_type = 'any' ) {
 	$i = 0; // 全体のループカウント用のインクリメント
 	$j = 0; // 書き続けた日のカウント用のインクリメント
 	$roop = 1; // ループ回数
@@ -307,7 +314,49 @@ function continue_writing_date( $post_type = 'any' ) {
 			break; // 投稿が無い日があればループ停止
 		}
 	endwhile;
-	return $j; // 書き続けた日数を返す
+	return ( int ) $j; // 書き続けた日数を返す
+}
+
+/**
+ * 最後に記事を書いた日を出力
+ */
+function get_last_writing_date( $post_type = 'any' ) {
+	$i = 0; // 全体のループカウント用のインクリメント
+	$j = 0; // 書き続けた日のカウント用のインクリメント
+	$roop = 1; // ループ回数
+
+	// 指定回数分ループする
+	while ( $i < $roop ) :
+		$per_day = 86400 * $i; // 1ループ毎にn日分の秒数を追加する
+		$day_by_day = time() - $per_day; // n日前の日付を算出
+		$year = date( 'Y', $day_by_day ); // n日前の年
+		$monthnum = date( 'm', $day_by_day ); // n日前の月
+		$day = date( 'd', $day_by_day ); // n日前の日
+		$i++; // ループカウントを1追加
+
+		// 何日間書き続けたか確認するループ
+		$args = array(
+			'year' => $year,
+			'monthnum' => $monthnum,
+			'day' => $day,
+			'posts_per_page' => 1,
+			'post_type' => $post_type,
+			'post_status' => 'publish',
+		); // リクエスト用のパラメータを指定
+		$query = new WP_Query( $args ); // n日前の日付を1件だけリクエスト
+		if ( $query->have_posts() ) {
+			while ( $query->have_posts() ) {
+				$query->the_post();
+			}
+			return ( int ) get_the_date( 'U' );
+		} else {
+			$j++; // 書いてない日のカウントを1追加
+			if( $j === $roop ) {
+				$roop = $roop + 1; // 書いてない分ループ回数を増やしていく
+			}
+		}
+	endwhile;
+	return;
 }
 
 class emp {

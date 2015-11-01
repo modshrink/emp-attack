@@ -51,7 +51,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	</footer>
 
 <?php
-	emp::the_date();
+	echo var_dump(get_last_writing_date());
 ?>
 
 <?php wp_footer(); ?>
@@ -68,6 +68,5 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wf, s);
   })(); </script>
-<?php echo continue_writing_date(); ?>
 </body>
 </html>
