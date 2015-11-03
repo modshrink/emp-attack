@@ -51,7 +51,7 @@ function emp_pre_get_posts( $query ) {
 	global $post;
 	if ( $query->is_home() && $query->is_main_query() ) {
 		$query->set( 'posts_per_page', '12' );
-
+		// 先頭に固定表示の投稿があれば1件少なく
 		$find_sticky_query = new WP_Query( array( 'post_type' => 'any', 'posts_per_page' => 1, 'post_status' => 'publish' ) );
 		if ( is_sticky( $find_sticky_query->posts[0]->ID ) && !is_paged() ) {
 			$query->set( 'posts_per_page', '11' );
