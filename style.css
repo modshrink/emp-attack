@@ -198,7 +198,6 @@ header {
 
 .main {
 	margin: 0 auto;
-	max-width: 1024px;
 }
 
 .site-description {
@@ -272,7 +271,6 @@ header {
 }
 
 .article {
-	border: 2px solid #000000;
 	margin-bottom: 60px;
 }
 
@@ -308,6 +306,8 @@ header {
 
 .article__content {
 	padding: 20px;
+	max-width: 1024px;
+		margin: 0 auto;
 }
 
 .article__content img {
@@ -317,13 +317,13 @@ header {
 }
 
 .article__footer {
-	border-top: 2px solid #000000;
+	border-top: 1px solid #CCCCCC;
 	margin-top: 20px;
 	padding: 20px;
 }
 
 .sticky .article__footer {
-	border-top: 2px solid #FFFFFF;
+	border-top: 1px solid #CCCCCC;
 }
 
 .article__footer ul {
@@ -337,7 +337,8 @@ header {
 }
 
 .article__pagination {
-	border-top: 2px solid #000000;
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
 	padding: 20px;
 }
 
@@ -347,7 +348,6 @@ header {
 
 .article__pagination__next {
 	padding-top: 10px;
-	border-top: 1px solid #CCCCCC;
 }
 
 .article__pagination__excerpt {
