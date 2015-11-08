@@ -20,7 +20,7 @@ Tags: one-column, fluid-layout, responsive-layout, custom-background
 .entry-content::after,
 .home .main::after {
 	content: "";
- 	display: table;
+	display: table;
 }
 
 .article:after,
@@ -198,7 +198,6 @@ header {
 
 .main {
 	margin: 0 auto;
-	max-width: 1024px;
 }
 
 .site-description {
@@ -232,53 +231,49 @@ header {
  */
 
 .home .article {
-	border: none;
-	margin: 0 10px 10px 0;
+	border-bottom: 1px solid #CCCCCC;
+	margin: 0 auto;
 	padding: 0;
-	width: 329px;
-	float: left;
 }
 
- .home .article__header {
- 	margin: 0;
-	padding: 0;
-	width: 100%;
+.home .article__header {
+	 border: none;
+	margin: 0 auto;
+	max-width: 1080px;
+	padding:  0 20px;
 	text-align: left;
  }
 
 .home .article__header__title {
-	 padding:  0 10px;
+	 padding:  0;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	height: 3em;
-	font-size: 95%;
 	font-weight: bold;
 }
 
 .home .article__content {
 	text-align: left;
 	float: none;
-	margin: 0;
-	padding: 0 10px;
+	margin: 0 auto 20px;
+	max-width: 1080px;
+	padding: 0 20px;
 	font-size: 95%;
-	height: 220px;
+	background: none;
 }
 
-.home .article__content__thumbnail {
-	text-align: center;
-	float: none;
-	margin: 0;
+.home .article__thumbnail {
+	text-align: left;
+	float: left;
+	margin: 0 20px 20px 0;
 	padding: 0;
 }
 
 .article {
-	border: 2px solid #000000;
 	margin-bottom: 60px;
 }
 
 .sticky {
 	border: none;
-	background: #FFC107;
  }
 
 .article__content__thumbnail {
@@ -288,10 +283,13 @@ header {
 }
 
 .article__header {
-	text-align: center;
+	border-bottom: 1px solid #CCCCCC;
+	padding: 0;
+	width: 100%;
 }
 
 .article__header__title {
+	padding: 0 20px;
 	font-weight: normal;
 }
 
@@ -307,7 +305,29 @@ header {
 }
 
 .article__content {
-	padding: 20px;
+	padding: 50px 0;
+	background: #FFFFFF;
+}
+
+.article__content > * {
+	max-width: 1024px;
+	margin: 20px auto;
+	padding: 0 20px;
+}
+
+.article__content pre {
+	max-width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.article__content pre code {
+	display: block;
+	max-width: 1024px;
+	margin: 20px auto;
+	padding: 0 20px 15px 20px;
+	color: #FFFFFF;
+	background: #232323;
 }
 
 .article__content img {
@@ -317,13 +337,20 @@ header {
 }
 
 .article__footer {
-	border-top: 2px solid #000000;
-	margin-top: 20px;
+	border-top: 1px solid #CCCCCC;
 	padding: 20px;
 }
 
-.sticky .article__footer {
-	border-top: 2px solid #FFFFFF;
+.home .article__footer {
+	border: none;
+	margin: 0 auto;
+	max-width: 1080px;
+}
+
+.article__footer__title {
+	margin-right: 10px;
+	width: 120px;
+	display: inline-block;
 }
 
 .article__footer ul {
@@ -337,8 +364,16 @@ header {
 }
 
 .article__pagination {
-	border-top: 2px solid #000000;
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
 	padding: 20px;
+}
+
+.article__pagination__title {
+	margin-right: 10px;
+	width: 120px;
+	display: inline-block;
+	font-weight: bold;
 }
 
 .article__pagination__previous {
@@ -347,7 +382,6 @@ header {
 
 .article__pagination__next {
 	padding-top: 10px;
-	border-top: 1px solid #CCCCCC;
 }
 
 .article__pagination__excerpt {
@@ -379,52 +413,52 @@ header {
 	max-width: 1024px;
 }
 
-.single article[class*="format-"]:before {
-	margin: 20px 20px 0 0;
+.has_icon.article[class*="format-"]:before {
+	margin: 0 20px 20px 20px;
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
-	font: normal 50px/1 'dashicons';
+	font: normal 30px/1 'dashicons';
 	vertical-align: middle;
-	float: right;
+	float: left;
 }
 
-.single .format-standard:before {
+.has_icon.format-standard:before {
 	content: "\f119";
 }
 
-.single .format-aside:before {
+.has_icon .format-aside:before {
 	content: "\f123";
 }
 
-.single .format-gallery:before {
+.has_icon .format-gallery:before {
 	content: "\f161";
 }
 
-.single .format-image:before {
+.has_icon .format-image:before {
 	content: "\f128";
 }
 
-.single .format-link:before {
+.has_icon .format-link:before {
 	content: "\f103";
 }
 
-.single .format-quote:before {
+.has_icon .format-quote:before {
 	content: "\f122";
 }
 
-.single .format-status:before {
+.has_icon .format-status:before {
 	content: "\f130";
 }
 
-.single .format-video:before {
+.has_icon .format-video:before {
 	content: "\f236";
 }
 
-.single .format-audio:before {
+.has_icon .format-audio:before {
 	content: "\f127";
 }
 
-.single .format-chat:before {
+.has_icon .format-chat:before {
 	content: "\f125";
 }
 
@@ -435,9 +469,7 @@ header {
 }
 
 @media screen and (max-width: 1024px) {
-	.article {
-		margin: 0 20px 30px;
-	}
+
 }
 
 @media screen and (max-width: 480px) {
