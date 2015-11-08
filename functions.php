@@ -426,9 +426,9 @@ class emp {
 
 		$my_posts = get_posts( array( 'include'=>array( $post_id ) ) );
 		if( $previous ):
-			echo '前の投稿: ';
+			echo '<span class="article__pagination__title">' . __( 'Previous Post' ) . ': ' . '</span>';
 		else:
-			echo '次の投稿: ';
+			echo '<span class="article__pagination__title">' . __( 'Next Post' ) . ': ' . '</span>';
 		endif;
 		foreach ( $my_posts as $post ) : setup_postdata( $post ); ?>
 				<a href="<?php echo get_the_permalink( $post_id ); ?>"><?php echo get_the_title( $post_id ); ?></a>

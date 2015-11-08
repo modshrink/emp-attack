@@ -1,27 +1,17 @@
-		<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'article' ) ); ?>>
+		<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'article', 'has_icon' ) ); ?>>
 			<header class="article__header">
 				<div class="published"><?php emp::the_date(); ?></div>
 				<h1 class="article__header__title"><?php the_title(); ?></h1>
 			</header>
 			<div class="article__content">
-			<?php if ( has_post_thumbnail() ) : ?>
-				<figure class="article__content__thumbnail">
-				<?php the_post_thumbnail( 'thumbnail' ); ?>
-				</figure>
-			<?php endif; ?>
-
-			<?php if( is_home() ): ?>
-				<?php the_excerpt(); ?>
-			<?php else: ?>
 				<?php the_content(); ?>
-			<?php endif; ?>
 			</div>
 			<footer class="article__footer">
-				<div class="bookmark"><a href="<?php the_permalink(); ?>">Permalink</a></div>
-				<div class="published">Last modified: <?php emp::the_modified();?></div>
-				<div class="tags"><?php the_tags(); ?></div>
+				<div class="bookmark"><span class="article__footer__title"><?php printf( __( 'Permalink: %s' ), '</span><a href="' . get_the_permalink() . '">' . get_the_permalink() . '</a>' ); ?></div>
+				<div class="published"><span class="article__footer__title"><?php _e( 'Last updated' ); ?>: </span><?php emp::the_modified();?></div>
+				<div class="tags"><span class="article__footer__title"><?php _e( 'Tags' ); ?>: </span><?php the_tags( '' ); ?></div>
 			</footer>
-			<?php if( !is_sticky() && ( get_adjacent_post() || get_adjacent_post( '', '', false ) ) ): ?>
+			<?php if( get_adjacent_post() || get_adjacent_post( '', '', false ) ): ?>
 			<div class ="article__pagination">
 				<?php if( get_adjacent_post() ) : ?>
 				<div class="article__pagination__previous">
